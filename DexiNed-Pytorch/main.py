@@ -145,7 +145,7 @@ def parse_args():
     train_info = dataset_info(TRAIN_DATA, is_linux=IS_LINUX)
     train_dir = train_info['data_dir']
     # ----------- test -----------
-    TEST_DATA = DATASET_NAMES[1] # max 8
+    TEST_DATA = DATASET_NAMES[8] # max 8
     data_inf = dataset_info(TEST_DATA, is_linux=IS_LINUX)
     test_dir = data_inf['data_dir']
 
@@ -173,12 +173,12 @@ def parse_args():
                         default=data_inf['test_list'],
                         help='Dataset sample indices list.')
     parser.add_argument('--is_testing',type=bool,
-                        default=False,
+                        default=True,
                         help='Put script in testing mode.')
-    # parser.add_argument('--use_prev_trained',
-    #                     type=bool,
-    #                     default=True,
-    #                     help='use previous trained data')  # Just for test
+    parser.add_argument('--use_prev_trained',
+                        type=bool,
+                        default=True,
+                        help='use previous trained data')  # Just for test
     parser.add_argument('--checkpoint_data',
                         type=str,
                         default='1/1_model.pth',
